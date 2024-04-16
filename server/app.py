@@ -5,6 +5,12 @@ from flask_restful import Resource
 
 from config import app, db, api
 from models import User
+from resources import Signup, Login, Logout, CheckSession
+
+app.add_url_rule('/signup', view_func=Signup.as_view('signup'))
+app.add_url_rule('/login', view_func=Login.as_view('login'))
+app.add_url_rule('/logout', view_func=Logout.as_view('logout'))
+app.add_url_rule('/check_session', view_func=CheckSession.as_view('check_session'))
 
 class ClearSession(Resource):
 
